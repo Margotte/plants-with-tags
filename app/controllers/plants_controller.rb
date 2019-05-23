@@ -11,10 +11,12 @@ class PlantsController < ApplicationController
   end
 
   def destroy
+
     @plant = Plant.find(params[:id])
-    garden = @plant.garden
+    @garden = @plant.garden
     @plant.destroy
-    redirect_to garden_path(garden)
+
+    redirect_to garden_path(@garden)
   end
 
   private
